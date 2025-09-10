@@ -1,0 +1,46 @@
+!DOCTYPE html
+html
+  head
+    titlePainel Power BI Rotativotitle
+    meta charset=UTF-8
+    style
+      html, body {
+        margin 0;
+        padding 0;
+        overflow hidden;
+        height 100%;
+        background #000;
+      }
+      iframe {
+        width 100%;
+        height 100%;
+        border none;
+      }
+    style
+  head
+  body
+    iframe id=powerbi-frameiframe
+
+    script
+      const pages = [
+	https://app.powerbi.com/reportEmbed?reportId=81de64a3-4fe4-4a85-be64-336ece3523e1&autoAuth=true&ctid=832b0736-d169-4301-a7d7-a8cc17c4a68f-a8cc17c4a68f&filterPaneEnabled=false&navContentPaneEnabled=false&aspectRatio=Fill,
+	https://app.powerbi.com/reportEmbed?reportId=81de64a3-4fe4-4a85-be64-336ece3523e1&autoAuth=true&ctid=832b0736-d169-4301-a7d7-a8cc17c4a68f-a8cc17c4a68f&filterPaneEnabled=false&navContentPaneEnabled=false&aspectRatio=Fill,
+      ];
+
+      let index = 0;
+
+      function rotatePage() {
+        document.getElementById(powerbi-frame).src = pages[index];
+        index = (index + 1) % pages.length;
+      }
+
+       Primeira carga
+      rotatePage();
+
+       Troca de página a cada 1 minuto (60000 ms)
+      setInterval(() = {
+        rotatePage();
+      }, 180000);  Atualizado para 1 minuto (60.000 ms)
+    script
+  body
+html
